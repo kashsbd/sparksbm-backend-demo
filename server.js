@@ -10,6 +10,10 @@ const caseRouter = require('./api/routes/case');
 const caseCategoryRouter = require('./api/routes/case_category');
 const clientRouter = require('./api/routes/client');
 const vendorRouter = require('./api/routes/vendor');
+const taskRouter = require('./api/routes/task');
+const eventRouter = require('./api/routes/event');
+const eventTypeRouter = require('./api/routes/event_type');
+const expenseTypeRouter = require('./api/routes/expense_type');
 
 
 db.authenticate()
@@ -35,9 +39,13 @@ db.authenticate()
 		app.use('/staffs', staffRouter);
 		app.use('/accounts', accountRouter);
 		app.use('/cases', caseRouter);
-		app.use('/case-categories/',caseCategoryRouter);
+		app.use('/case-categories', caseCategoryRouter);
 		app.use('/clients', clientRouter);
 		app.use('/vendors', vendorRouter);
+		app.use('/tasks', taskRouter);
+		app.use('/events', eventRouter);
+		app.use('/event-types', eventTypeRouter);
+		app.use('/expense-types', expenseTypeRouter);
 
 		app.use((req, res, next) => {
 			const error = new Error('Not found');

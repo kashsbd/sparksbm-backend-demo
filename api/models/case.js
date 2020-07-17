@@ -41,8 +41,8 @@ const caseTable = db.define('tbl_case', {
     }
 }, { timestamps: true });
 
-client.hasOne(caseTable);
-staff.hasOne(caseTable);
-caseCategory.hasOne(caseTable, { foreignKey: 'case_category_id' } );
+client.hasOne(caseTable, { foreignKey: 'client_id' });
+staff.hasOne(caseTable, { foreignKey: 'staff_id' });
+caseCategory.hasOne(caseTable, { foreignKey: 'case_category_id' });
 
 module.exports = caseTable;

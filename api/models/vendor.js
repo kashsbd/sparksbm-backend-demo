@@ -32,6 +32,6 @@ const vendor = db.define('tbl_vendor', {
     }
 }, { timestamps: true });
 
-address.hasOne(vendor);
+address.hasOne(vendor,{ foreignKey: 'address_id' });
 
 module.exports = vendor;
