@@ -14,6 +14,7 @@ const taskRouter = require('./api/routes/task');
 const eventRouter = require('./api/routes/event');
 const eventTypeRouter = require('./api/routes/event_type');
 const expenseTypeRouter = require('./api/routes/expense_type');
+const messageRouter = require('./api/routes/message');
 
 
 db.authenticate()
@@ -46,6 +47,7 @@ db.authenticate()
 		app.use('/events', eventRouter);
 		app.use('/event-types', eventTypeRouter);
 		app.use('/expense-types', expenseTypeRouter);
+		app.use('/messages', messageRouter);
 
 		app.use((req, res, next) => {
 			const error = new Error('Not found');
