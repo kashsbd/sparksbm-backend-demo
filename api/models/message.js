@@ -26,7 +26,7 @@ const message = db.define('tbl_message', {
         allowNull: true
     },
     date: {
-        type: DataTypes.DATEONLY,
+        type: DataTypes.DATE,
         allowNull: false
     },
     message: {
