@@ -10,7 +10,15 @@ const eventType = db.define('tbl_event_type', {
     event_type_name: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
 module.exports = eventType;

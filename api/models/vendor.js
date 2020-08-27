@@ -29,9 +29,17 @@ const vendor = db.define('tbl_vendor', {
     fax: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
-address.hasOne(vendor,{ foreignKey: 'address_id' });
+address.hasOne(vendor, { foreignKey: 'address_id' });
 
 module.exports = vendor;

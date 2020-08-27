@@ -10,7 +10,15 @@ const caseCategory = db.define('tbl_case_category', {
     category_name: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
 module.exports = caseCategory;

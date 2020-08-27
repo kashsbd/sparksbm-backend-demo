@@ -30,7 +30,15 @@ const invoice = db.define('tbl_invoice', {
     is_final: {
         type: DataTypes.BOOLEAN,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: false });
+}, { timestamps: false, underscored: true, });
 
 module.exports = invoice;

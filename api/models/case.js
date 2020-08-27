@@ -38,8 +38,16 @@ const caseTable = db.define('tbl_case', {
     description: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
 client.hasOne(caseTable, { foreignKey: 'client_id' });
 staff.hasOne(caseTable, { foreignKey: 'staff_id' });

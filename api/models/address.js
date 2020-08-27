@@ -26,7 +26,15 @@ const address = db.define('tbl_address', {
     country: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: false });
+}, { timestamps: false,underscored : true, });
 
 module.exports = address;

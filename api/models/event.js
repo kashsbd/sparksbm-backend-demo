@@ -27,10 +27,18 @@ const event = db.define('tbl_event', {
         type: DataTypes.STRING,
         allowNull: false
     },
-}, { timestamps: false });
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    }
+}, { timestamps: false, underscored: true, });
 
-caseTable.hasOne(event,{ foreignKey: 'case_id' });
-eventType.hasOne(event,{ foreignKey: 'event_type_id' });
+caseTable.hasOne(event, { foreignKey: 'case_id' });
+eventType.hasOne(event, { foreignKey: 'event_type_id' });
 staff.hasOne(event, { foreignKey: 'primary_resp_id' });
 staff.hasOne(event, { foreignKey: 'secondary_resp_id' });
 

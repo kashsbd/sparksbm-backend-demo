@@ -57,7 +57,16 @@ const staff = db.define('tbl_staff', {
     last_login: {
         type: DataTypes.DATE,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+
+}, { timestamps: true, underscored: true, });
 
 module.exports = staff;

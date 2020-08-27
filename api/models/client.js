@@ -58,8 +58,16 @@ const client = db.define('tbl_client', {
     leds_client_id: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
 address.hasOne(client, { foreignKey: 'postal_address_id' });
 address.hasOne(client, { foreignKey: 'billing_address_id' });

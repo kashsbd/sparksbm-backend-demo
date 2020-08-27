@@ -9,12 +9,7 @@ const accountRouter = require('./api/routes/account');
 const caseRouter = require('./api/routes/case');
 const caseCategoryRouter = require('./api/routes/case_category');
 const clientRouter = require('./api/routes/client');
-const vendorRouter = require('./api/routes/vendor');
-const taskRouter = require('./api/routes/task');
-const eventRouter = require('./api/routes/event');
-const eventTypeRouter = require('./api/routes/event_type');
 const expenseTypeRouter = require('./api/routes/expense_type');
-const messageRouter = require('./api/routes/message');
 const invoiceRouter = require('./api/routes/invoice');
 const caseInvoiceRouter = require('./api/routes/case_invoice');
 
@@ -44,14 +39,9 @@ db.authenticate()
 		app.use('/cases', caseRouter);
 		app.use('/case-categories', caseCategoryRouter);
 		app.use('/clients', clientRouter);
-		app.use('/vendors', vendorRouter);
-		app.use('/tasks', taskRouter);
-		app.use('/events', eventRouter);
-		app.use('/event-types', eventTypeRouter);
 		app.use('/expense-types', expenseTypeRouter);
-		app.use('/messages', messageRouter);
-		app.use('/invoices',invoiceRouter);
-		app.use('/case-invoices',caseInvoiceRouter);
+		app.use('/invoices', invoiceRouter);
+		app.use('/case-invoices', caseInvoiceRouter);
 
 		app.use((req, res, next) => {
 			const error = new Error('Not found');

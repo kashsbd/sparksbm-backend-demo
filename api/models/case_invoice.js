@@ -9,8 +9,16 @@ const caseInvoice = db.define('tbl_case_invoice', {
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true,underscored : true, });
 
 caseTable.hasOne(caseInvoice, { foreignKey: 'case_id' });
 invoice.hasOne(caseInvoice, { foreignKey: 'invoice_id' });

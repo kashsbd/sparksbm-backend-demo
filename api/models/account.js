@@ -22,7 +22,15 @@ const account = db.define('tbl_account', {
     start_date: {
         type: DataTypes.DATEONLY,
         allowNull: true
+    },
+    created_by: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updated_by: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: true });
+}, { timestamps: true, underscored: true, });
 
 module.exports = account;

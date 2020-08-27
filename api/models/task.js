@@ -39,8 +39,16 @@ const task = db.define('tbl_task', {
     recurring_type: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    createdBy: {
+        type: DataTypes.UUID,
+        allowNull: false
+    },
+    updatedBy: {
+        type: DataTypes.UUID,
+        allowNull: false
     }
-}, { timestamps: false });
+}, { timestamps: false, underscored: true, });
 
 caseTable.hasOne(task, { foreignKey: 'case_id' });
 staff.hasOne(task, { foreignKey: 'assigned_by' });
