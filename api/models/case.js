@@ -2,8 +2,6 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
 const client = require('../models/client');
-const staff = require('../models/staff');
-const caseCategory = require('../models/case_category');
 
 const caseTable = db.define('tbl_case', {
     case_id: {
@@ -50,7 +48,5 @@ const caseTable = db.define('tbl_case', {
 }, { timestamps: true, underscored: true, });
 
 client.hasOne(caseTable, { foreignKey: 'client_id' });
-staff.hasOne(caseTable, { foreignKey: 'staff_id' });
-caseCategory.hasOne(caseTable, { foreignKey: 'case_category_id' });
 
 module.exports = caseTable;

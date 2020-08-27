@@ -41,7 +41,7 @@ const message = db.define('tbl_message', {
         type: DataTypes.UUID,
         allowNull: false
     }
-}, { timestamps: false, underscored: true, });
+}, { timestamps: true, underscored: true, });
 
 staff.hasOne(message, { foreignKey: 'staff_id' });
 

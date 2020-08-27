@@ -12,6 +12,9 @@ const clientRouter = require('./api/routes/client');
 const expenseTypeRouter = require('./api/routes/expense_type');
 const invoiceRouter = require('./api/routes/invoice');
 const caseInvoiceRouter = require('./api/routes/case_invoice');
+const staffCaseRouter = require('./api/routes/staff_case');
+const caseCategoryCaseRouter = require('./api/routes/case_category_case');
+const addressRouter = require('./api/routes/address');
 
 
 db.authenticate()
@@ -42,6 +45,7 @@ db.authenticate()
 		app.use('/expense-types', expenseTypeRouter);
 		app.use('/invoices', invoiceRouter);
 		app.use('/case-invoices', caseInvoiceRouter);
+
 
 		app.use((req, res, next) => {
 			const error = new Error('Not found');

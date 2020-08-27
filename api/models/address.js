@@ -1,11 +1,17 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
+const client = require('../models/client');
+
 const address = db.define('tbl_address', {
     address_id: {
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false
+    },
+    type: {
+        type: DataTypes.ENUM("POSTAL", "BILLING"),
+        allowNull: false,
     },
     address: {
         type: DataTypes.STRING,
@@ -35,6 +41,8 @@ const address = db.define('tbl_address', {
         type: DataTypes.UUID,
         allowNull: false
     }
-}, { timestamps: false,underscored : true, });
+}, { timestamps: true, underscored: true, });
+
+client.hasOne(address, { foreignKey: 'client_id' });
 
 module.exports = address;

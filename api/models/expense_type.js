@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
+const account = require('../models/account');
+
 const expenseType = db.define('tbl_expense_type', {
     expense_type_id: {
         type: DataTypes.UUID,
@@ -20,5 +22,7 @@ const expenseType = db.define('tbl_expense_type', {
         allowNull: false
     }
 }, { timestamps: true, underscored: true, });
+
+account.hasOne(expenseType, { foreignKey: 'account_id' });
 
 module.exports = expenseType;

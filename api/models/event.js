@@ -35,7 +35,7 @@ const event = db.define('tbl_event', {
         type: DataTypes.UUID,
         allowNull: false
     }
-}, { timestamps: false, underscored: true, });
+}, { timestamps: true, underscored: true, });
 
 caseTable.hasOne(event, { foreignKey: 'case_id' });
 eventType.hasOne(event, { foreignKey: 'event_type_id' });

@@ -1,16 +1,10 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
-const caseCategory = db.define('tbl_cases_category', {
-    category_id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        allowNull: false
-    },
-    category_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
+const staff = require('../models/staff');
+const caseTable = require('../models/case');
+
+const staffCase = db.define('tbl_staffs_case', {
     createdBy: {
         type: DataTypes.UUID,
         allowNull: false
@@ -21,4 +15,7 @@ const caseCategory = db.define('tbl_cases_category', {
     }
 }, { timestamps: true, underscored: true, });
 
-module.exports = caseCategory;
+staff.hasOne(staffCase, { foreignKey: 'staff_id' });
+caseTable.hasOne(staffCase, { foreignKey: 'case_id' });
+
+module.exports = staffCase;

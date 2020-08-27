@@ -39,6 +39,6 @@ const invoice = db.define('tbl_invoice', {
         type: DataTypes.UUID,
         allowNull: false
     }
-}, { timestamps: false, underscored: true, });
+}, { timestamps: true, underscored: true, });
 
 module.exports = invoice;

@@ -48,7 +48,7 @@ const task = db.define('tbl_task', {
         type: DataTypes.UUID,
         allowNull: false
     }
-}, { timestamps: false, underscored: true, });
+}, { timestamps: true, underscored: true, });
 
 caseTable.hasOne(task, { foreignKey: 'case_id' });
 staff.hasOne(task, { foreignKey: 'assigned_by' });

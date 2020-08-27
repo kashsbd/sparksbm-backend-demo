@@ -4,7 +4,7 @@ const { db } = require('../config/db.config');
 const caseTable = require('../models/case');
 const invoice = require('../models/invoice');
 
-const caseInvoice = db.define('tbl_case_invoice', {
+const caseInvoice = db.define('tbl_cases_invoice', {
     case_invoice_id: {
         type: DataTypes.UUID,
         primaryKey: true,

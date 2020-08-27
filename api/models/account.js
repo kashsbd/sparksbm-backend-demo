@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
+const client = require('../models/client');
+
 const account = db.define('tbl_account', {
     account_id: {
         type: DataTypes.UUID,
@@ -32,5 +34,7 @@ const account = db.define('tbl_account', {
         allowNull: false
     }
 }, { timestamps: true, underscored: true, });
+
+client.hasOne(account, { foreignKey: 'client_id' });
 
 module.exports = account;
