@@ -2,9 +2,14 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
 const staff = db.define('tbl_staff', {
-    staff_id: {
+    staff_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    staff_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     first_name: {

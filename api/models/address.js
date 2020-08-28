@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const client = require('../models/client');
 
 const address = db.define('tbl_address', {
-    address_id: {
+    address_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    address_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     type: {
@@ -43,6 +48,6 @@ const address = db.define('tbl_address', {
     }
 }, { timestamps: true, underscored: true, });
 
-client.hasOne(address, { foreignKey: 'client_id' });
+client.hasOne(address, { foreignKey: 'client_sid' });
 
 module.exports = address;

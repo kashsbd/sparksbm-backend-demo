@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const staff = require('../models/staff');
 
 const message = db.define('tbl_message', {
-    message_id: {
+    message_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    message_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     message_type: {
@@ -43,6 +48,6 @@ const message = db.define('tbl_message', {
     }
 }, { timestamps: true, underscored: true, });
 
-staff.hasOne(message, { foreignKey: 'staff_id' });
+staff.hasOne(message, { foreignKey: 'staff_sid' });
 
 module.exports = message;

@@ -15,7 +15,7 @@ const staffCase = db.define('tbl_staffs_case', {
     }
 }, { timestamps: true, underscored: true, });
 
-staff.hasOne(staffCase, { foreignKey: 'staff_id' });
-caseTable.hasOne(staffCase, { foreignKey: 'case_id' });
+staff.hasOne(staffCase, { foreignKey: 'staff_sid' });
+caseTable.hasOne(staffCase, { foreignKey: 'case_sid' });
 
 module.exports = staffCase;

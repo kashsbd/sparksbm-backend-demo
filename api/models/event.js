@@ -6,9 +6,14 @@ const eventType = require('../models/event_type');
 const staff = require('../models/staff');
 
 const event = db.define('tbl_event', {
-    event_id: {
+    event_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    event_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     due_date: {
@@ -37,9 +42,9 @@ const event = db.define('tbl_event', {
     }
 }, { timestamps: true, underscored: true, });
 
-caseTable.hasOne(event, { foreignKey: 'case_id' });
-eventType.hasOne(event, { foreignKey: 'event_type_id' });
-staff.hasOne(event, { foreignKey: 'primary_resp_id' });
-staff.hasOne(event, { foreignKey: 'secondary_resp_id' });
+caseTable.hasOne(event, { foreignKey: 'case_sid' });
+eventType.hasOne(event, { foreignKey: 'event_type_sid' });
+staff.hasOne(event, { foreignKey: 'primary_resp_sid' });
+staff.hasOne(event, { foreignKey: 'secondary_resp_sid' });
 
 module.exports = event;

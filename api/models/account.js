@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const client = require('../models/client');
 
 const account = db.define('tbl_account', {
-    account_id: {
+    account_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    account_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     account_number: {
@@ -35,6 +40,6 @@ const account = db.define('tbl_account', {
     }
 }, { timestamps: true, underscored: true, });
 
-client.hasOne(account, { foreignKey: 'client_id' });
+client.hasOne(account, { foreignKey: 'client_sid' });
 
 module.exports = account;

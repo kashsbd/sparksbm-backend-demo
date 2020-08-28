@@ -15,7 +15,7 @@ const caseCategoryCase = db.define('tbl_case_categories_case', {
     }
 }, { timestamps: true, underscored: true, });
 
-caseCategory.hasOne(caseCategoryCase, { foreignKey: 'category_id' });
-caseTable.hasOne(caseCategoryCase, { foreignKey: 'case_id' });
+caseCategory.hasOne(caseCategoryCase, { foreignKey: 'category_sid' });
+caseTable.hasOne(caseCategoryCase, { foreignKey: 'case_sid' });
 
 module.exports = caseCategoryCase;

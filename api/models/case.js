@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const client = require('../models/client');
 
 const caseTable = db.define('tbl_case', {
-    case_id: {
+    case_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    case_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     case_name: {
@@ -47,6 +52,6 @@ const caseTable = db.define('tbl_case', {
     }
 }, { timestamps: true, underscored: true, });
 
-client.hasOne(caseTable, { foreignKey: 'client_id' });
+client.hasOne(caseTable, { foreignKey: 'client_sid' });
 
 module.exports = caseTable;

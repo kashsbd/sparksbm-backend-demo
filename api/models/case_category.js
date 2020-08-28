@@ -2,9 +2,14 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
 const caseCategory = db.define('tbl_cases_category', {
-    category_id: {
+    category_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    category_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     category_name: {

@@ -5,9 +5,14 @@ const caseTable = require('../models/case');
 const invoice = require('../models/invoice');
 
 const caseInvoice = db.define('tbl_cases_invoice', {
-    case_invoice_id: {
+    case_invoice_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    case_invoice_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     createdBy: {
@@ -20,7 +25,7 @@ const caseInvoice = db.define('tbl_cases_invoice', {
     }
 }, { timestamps: true,underscored : true, });
 
-caseTable.hasOne(caseInvoice, { foreignKey: 'case_id' });
-invoice.hasOne(caseInvoice, { foreignKey: 'invoice_id' });
+caseTable.hasOne(caseInvoice, { foreignKey: 'case_sid' });
+invoice.hasOne(caseInvoice, { foreignKey: 'invoice_sid' });
 
 module.exports = caseInvoice;

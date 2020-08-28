@@ -5,9 +5,14 @@ const caseTable = require('../models/case');
 const staff = require('../models/staff');
 
 const task = db.define('tbl_task', {
-    task_id: {
+    task_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    task_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     task_name: {
@@ -50,7 +55,7 @@ const task = db.define('tbl_task', {
     }
 }, { timestamps: true, underscored: true, });
 
-caseTable.hasOne(task, { foreignKey: 'case_id' });
+caseTable.hasOne(task, { foreignKey: 'case_sid' });
 staff.hasOne(task, { foreignKey: 'assigned_by' });
 staff.hasOne(task, { foreignKey: 'assigned_to' });
 staff.hasOne(task, { foreignKey: 'notify_user_to' });

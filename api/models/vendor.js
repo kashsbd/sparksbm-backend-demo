@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const address = require('../models/address');
 
 const vendor = db.define('tbl_vendor', {
-    vendor_id: {
+    vendor_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    vendor_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     // company details
@@ -40,6 +45,6 @@ const vendor = db.define('tbl_vendor', {
     }
 }, { timestamps: true, underscored: true, });
 
-address.hasOne(vendor, { foreignKey: 'address_id' });
+address.hasOne(vendor, { foreignKey: 'address_sid' });
 
 module.exports = vendor;

@@ -4,9 +4,14 @@ const { db } = require('../config/db.config');
 const account = require('../models/account');
 
 const expenseType = db.define('tbl_expense_type', {
-    expense_type_id: {
+    expense_type_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    expense_type_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     expense_type_name: {
@@ -23,6 +28,6 @@ const expenseType = db.define('tbl_expense_type', {
     }
 }, { timestamps: true, underscored: true, });
 
-account.hasOne(expenseType, { foreignKey: 'account_id' });
+account.hasOne(expenseType, { foreignKey: 'account_sid' });
 
 module.exports = expenseType;

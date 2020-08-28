@@ -2,9 +2,14 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
 const invoice = db.define('tbl_invoice', {
-    invoice_id: {
+    invoice_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    invoice_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     invoice_no: {

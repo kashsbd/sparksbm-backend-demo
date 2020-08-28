@@ -2,9 +2,14 @@ const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
 const client = db.define('tbl_client', {
-    client_id: {
+    client_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
+        allowNull: false
+    },
+    client_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false
     },
     // company details
