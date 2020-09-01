@@ -11,7 +11,6 @@ const expenseType = db.define('tbl_expense_type', {
     },
     expense_type_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     expense_type_name: {

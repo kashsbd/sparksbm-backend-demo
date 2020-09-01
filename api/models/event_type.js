@@ -9,7 +9,6 @@ const eventType = db.define('tbl_event_type', {
     },
     event_type_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     event_type_name: {

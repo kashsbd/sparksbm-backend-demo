@@ -1,6 +1,9 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
+const companyTypeClient = require('../models/company_type_client');
+const personTypeClient = require('../models/person_type_client');
+
 const client = db.define('tbl_client', {
     client_sid: {
         type: DataTypes.UUID,
@@ -9,7 +12,6 @@ const client = db.define('tbl_client', {
     },
     client_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     // company details
@@ -50,7 +52,7 @@ const client = db.define('tbl_client', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    yr_interest_rate: {
+    yearly_interest_rate: {
         type: DataTypes.DOUBLE,
         allowNull: false
     },
@@ -71,5 +73,8 @@ const client = db.define('tbl_client', {
         allowNull: false
     }
 }, { timestamps: true, underscored: true, });
+
+// personTypeClient.belongsTo(client);
+// companyTypeClient.belongsTo(client);
 
 module.exports = client;

@@ -12,7 +12,6 @@ const task = db.define('tbl_task', {
     },
     task_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     task_name: {

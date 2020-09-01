@@ -11,7 +11,6 @@ const vendor = db.define('tbl_vendor', {
     },
     vendor_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     // company details

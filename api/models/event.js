@@ -13,7 +13,6 @@ const event = db.define('tbl_event', {
     },
     event_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     due_date: {

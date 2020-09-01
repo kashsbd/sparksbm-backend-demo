@@ -15,6 +15,8 @@ const caseInvoiceRouter = require('./api/routes/case_invoice');
 const staffCaseRouter = require('./api/routes/staff_case');
 const caseCategoryCaseRouter = require('./api/routes/case_category_case');
 const addressRouter = require('./api/routes/address');
+const companyTypeClientRouter = require('./api/routes/company_type_client');
+const personTypeClientRouter = require('./api/routes/person_type_client');
 
 
 db.authenticate()

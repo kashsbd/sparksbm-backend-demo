@@ -9,7 +9,6 @@ const caseCategory = db.define('tbl_cases_category', {
     },
     category_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     category_name: {

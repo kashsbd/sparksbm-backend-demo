@@ -1,44 +1,50 @@
 const { DataTypes } = require('sequelize');
 const { db } = require('../config/db.config');
 
+const staff = require('../models/staff');
 const client = require('../models/client');
 
-const account = db.define('tbl_account', {
-    account_sid: {
+const personTypeClient = db.define('tbl_person_type_client', {
+    person_type_sid: {
         type: DataTypes.UUID,
         primaryKey: true,
         allowNull: false
     },
-    account_id: {
+    person_type_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    account_number: {
+    id_card_number: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    bank_name: {
+    id_card_type: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    starting_money: {
-        type: DataTypes.DOUBLE,
-        allowNull: false
-    },
-    start_date: {
+    birth_date: {
         type: DataTypes.DATEONLY,
+        allowNull: false
+    },
+    salutation: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    notes: {
+        type: DataTypes.STRING,
         allowNull: true
     },
-    created_by: {
+    createdBy: {
         type: DataTypes.UUID,
         allowNull: false
     },
-    updated_by: {
+    updatedBy: {
         type: DataTypes.UUID,
         allowNull: false
     }
 }, { timestamps: true, underscored: true, });
 
-client.hasOne(account, { foreignKey: 'client_sid' });
+staff.hasOne(personTypeClient, { foreignKey: 'referred_by' });
+// client.hasOne(personTypeClient, { foreignKey: 'client_sid' });
 
-module.exports = account;
+module.exports = personTypeClient;

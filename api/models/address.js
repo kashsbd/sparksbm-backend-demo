@@ -11,7 +11,6 @@ const address = db.define('tbl_address', {
     },
     address_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     type: {

@@ -9,7 +9,6 @@ const staff = db.define('tbl_staff', {
     },
     staff_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     first_name: {
@@ -41,7 +40,7 @@ const staff = db.define('tbl_staff', {
         type: DataTypes.DOUBLE,
         allowNull: false
     },
-    gbl_hr_rate: {
+    global_hourly_rate: {
         type: DataTypes.DOUBLE,
         allowNull: false
     },

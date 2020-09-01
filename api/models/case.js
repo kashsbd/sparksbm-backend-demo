@@ -11,7 +11,6 @@ const caseTable = db.define('tbl_case', {
     },
     case_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     case_name: {
@@ -30,7 +29,7 @@ const caseTable = db.define('tbl_case', {
         type: DataTypes.DATEONLY,
         allowNull: false
     },
-    court_case_no: {
+    court_case_number: {
         type: DataTypes.STRING,
         allowNull: true
     },

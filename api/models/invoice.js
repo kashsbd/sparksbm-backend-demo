@@ -9,10 +9,9 @@ const invoice = db.define('tbl_invoice', {
     },
     invoice_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
-    invoice_no: {
+    invoice_number: {
         type: DataTypes.INTEGER,
         allowNull: false
     },

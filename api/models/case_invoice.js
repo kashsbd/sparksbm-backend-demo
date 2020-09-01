@@ -12,7 +12,6 @@ const caseInvoice = db.define('tbl_cases_invoice', {
     },
     case_invoice_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     createdBy: {

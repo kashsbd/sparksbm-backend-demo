@@ -11,7 +11,6 @@ const message = db.define('tbl_message', {
     },
     message_id: {
         type: DataTypes.INTEGER,
-        autoIncrement: true,
         allowNull: false
     },
     message_type: {
